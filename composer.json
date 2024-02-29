@@ -1,0 +1,26 @@
+{
+    "name": "ohansyah/laravel-exception-handler",
+    "description": "Return readble error messages",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Ohansyah\\ExceptionHandler\\": "src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Ohansyah\\ExceptionHandler\\ExceptionHandlerServiceProvider"
+            ]
+        }
+    },
+    "authors": [
+        {
+            "name": "ohansyah",
+            "email": "ohansyah@weekendinc.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
