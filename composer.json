@@ -1,6 +1,6 @@
 {
     "name": "ohansyah/laravel-exception-handler",
-    "description": "Return readble error messages",
+    "description": "Laravel API Exception Handler with readable error messages",
     "type": "library",
     "license": "MIT",
     "autoload": {
