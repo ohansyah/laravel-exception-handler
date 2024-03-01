@@ -21,6 +21,6 @@
             "email": "ohansyah@weekendinc.com"
         }
     ],
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "require": {}
 }
