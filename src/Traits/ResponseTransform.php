@@ -3,9 +3,9 @@
 namespace Ohansyah\ExceptionHandler\Traits;
 
 use Exception;
-use Throwable;
 use Illuminate\Http\JsonResponse;
 use Symfony\Component\Debug\Exception\FlattenException;
+use Throwable;
 
 /**
  * Custom Response
@@ -20,13 +20,17 @@ trait ResponseTransform
      */
     public function resException(Exception $exception): JsonResponse
     {
-        $fe = FlattenException::create($exception);
-        $responseCode = (int) $fe->getStatusCode();
+        try {
+            $fe = FlattenException::create($exception);
+            $responseCode = (int) $fe->getStatusCode();
 
-        return $this->resError(__("EH::http.$responseCode.message"), $responseCode, [
-            'title' => __("EH::http.$responseCode.title"),
-            'exception' => $exception->__toString(),
-        ]);
+            return $this->resError(__("EH::http.$responseCode.message"), $responseCode, [
+                'title' => __("EH::http.$responseCode.title"),
+                'exception' => $exception->__toString(),
+            ]);
+        } catch (\Throwable $th) {
+            return $this->resDefaultError($exception->__toString());
+        }
     }
 
     /**
@@ -37,10 +41,25 @@ trait ResponseTransform
      */
     public function resThrowable(Throwable $throwable): JsonResponse
     {
-        $responseCode = $throwable->getCode() ?: 500;
-        return $this->resError($throwable->getMessage(), $responseCode, [
-            'title' => __("EH::http.$responseCode.title"),
-            'exception' => $throwable->__toString(),
+        try {
+            $responseCode = $throwable->getCode() ?: 500;
+            return $this->resError($throwable->getMessage(), $responseCode, [
+                'title' => __("EH::http.$responseCode.title"),
+                'exception' => $throwable->__toString(),
+            ]);
+        } catch (\Throwable $th) {
+            return $this->resDefaultError($throwable->__toString());
+        }
+    }
+
+    /**
+     * Default Response Error
+     */
+    public function resDefaultError($exception = null): JsonResponse
+    {
+        return $this->resError(__("EH::http.500.message"), 500, [
+            'title' => __("EH::http.500.title"),
+            'exception' => $exception,
         ]);
     }
 
