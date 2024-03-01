@@ -43,6 +43,7 @@ class Name
     resException(Exception $exception);
     resError($responseMessage, int $responseCode = 400, array $additionals = []);
     resSuccess($responseMessage, int $responseCode = 200);
+    resThrowable(Throwable $throwable);
 }
 ```
 
