@@ -22,12 +22,6 @@ class ErrorController extends Controller
                 'title' => $title,
             ]);
         }
-        $title = $thisWilBeError;
-        try {
-            $title = $thisWilBeError;
-        } catch (\Exception $e) {
-            $exception = $e;
-        }
 
         return $this->resError($message, $code, [
             'title' => $title,
