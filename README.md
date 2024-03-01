@@ -1,5 +1,7 @@
 # Laravel Exception Handler
 
+[![Latest Version](https://img.shields.io/packagist/v/ohansyah/laravel-exception-handler.svg)](https://packagist.org/packages/ohansyah/laravel-exception-handler) [![Total Downloads](https://img.shields.io/packagist/dt/ohansyah/laravel-exception-handler.svg)](https://packagist.org/packages/ohansyah/laravel-exception-handler) [![License](https://img.shields.io/packagist/l/ohansyah/laravel-exception-handler.svg)](https://packagist.org/packages/ohansyah/laravel-exception-handler)
+
 ## Introduction
 Laravel API Exception Handler with readable error messages.
 However, this package is specifically designed to be compatible with older PHP versions and Laravel or Lumen legacy projects.
