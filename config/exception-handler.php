@@ -4,7 +4,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Response Exception
+    | Trace Exception
     |--------------------------------------------------------------------------
     |
     | This key is used to determine whether the exception response is displayed
@@ -14,4 +14,16 @@ return [
      */
 
     'trace_exception' => env('SERVICE_TRACE_EXCEPTION', true),
+
+    /*
+    |--------------------------------------------------------------------------
+    | Debug Routes
+    |--------------------------------------------------------------------------
+    |
+    | This key is used to determine whether the debug routes are displayed
+    | or not. If the value is true, the debug routes will be displayed.
+    | Otherwise, the debug routes will not be displayed.
+    |
+     */
+    'debug_routes' => env('APP_DEBUG', true),
 ];
